@@ -38,8 +38,33 @@
     </div>
 
     <script>
-        
+        const addItems = document.querySelector(".add-items");
+        const itemList = document.querySelector(".plates");
 
+        const items=[];
+
+        function addItem(e){
+            e.preventDefault();
+            const text = (this.querySelector("[name=item]")).value;
+            const item = {
+                text,
+                done: false
+            }
+
+            items.push(item);
+
+            populateList(items, itemList);
+
+            this.reset();
+        }
+
+        function populateList(items = [], location){
+            location.innerHTML = items.map((item, i) => {
+                return `<li><label for="">${item.text}</label></li> `
+            }).join("");
+        }
+        
+        addItems.addEventListener("submit", addItem);
     </script>
 
 
