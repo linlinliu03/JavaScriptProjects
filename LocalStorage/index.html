@@ -59,6 +59,18 @@
             this.reset();
         }
 
+        function toggle(e){
+            if(!e.target.matches("input")) return;
+
+            const el = e.target.dataset.index
+
+            items[el].done = !items[el].done;
+
+            localStorage.setItem("items", JSON.stringify(items));
+
+            populateList(items, itemList)
+        }
+
         function populateList(items = [], location){
             location.innerHTML = items.map((item, i) => {
                 return `
@@ -71,6 +83,7 @@
         }
         
         addItems.addEventListener("submit", addItem);
+        itemList.addEventListener("click", toggle)
 
         populateList(items, itemList)
     </script>
