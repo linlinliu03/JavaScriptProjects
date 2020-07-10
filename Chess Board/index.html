@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess Board</title>
+</head>
+<body>
+    
+    <div class="boardInner"></div>
+ 
+    
+
+    <style>
+        html,body{
+            height: 100vh;
+        }
+
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .boardInner{
+            border: 1px solid black;
+            height: 400px;
+            width: 400px;
+        }
+
+        .row{
+            display: flex;
+        }
+
+
+        .square{
+            height: 50px;
+            width: 50px;
+        }
+    </style>
+
+    <script>
+        var board = document.querySelector('.boardInner');
+        console.log(board)
+        const renderBoard1 = () => {
+                for (var i = 0; i < 8; ++i) {
+                    var row = document.createElement('DIV')
+                    row.className = 'row'
+                    row.style.flexDirection = i % 2 === 0 ? 'row' : 'row-reverse';
+                    for (var j = 0; j < 8; ++j) {
+                        var square = document.createElement('DIV')
+                        square.className = 'square'
+                        square.style.backgroundColor = j % 2 === 0 ? 'white' : 'black'
+                        row.appendChild(square)
+                    }
+                    board.appendChild(row)
+                }
+        }
+
+        document.addEventListener("DOMContentLoaded", renderBoard1)
+    </script>
+</body>
+</html>
