@@ -28,15 +28,15 @@
             width: 400px;
         }
 
-        .row{
+        /* .row{
             display: flex;
-        }
+        } */
 
 
-        .square{
+        /* .square{
             height: 50px;
             width: 50px;
-        }
+        } */
     </style>
 
     <script>
@@ -46,10 +46,13 @@
                 for (var i = 0; i < 8; ++i) {
                     var row = document.createElement('DIV')
                     row.className = 'row'
+                    row.style.display = 'flex'
                     row.style.flexDirection = i % 2 === 0 ? 'row' : 'row-reverse';
                     for (var j = 0; j < 8; ++j) {
                         var square = document.createElement('DIV')
                         square.className = 'square'
+                        square.style.height = '50px';
+                        square.style.width = '50px';
                         square.style.backgroundColor = j % 2 === 0 ? 'white' : 'black'
                         row.appendChild(square)
                     }
